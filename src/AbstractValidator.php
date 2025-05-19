@@ -2,11 +2,13 @@
 
 namespace AlanVdb\Validator;
 
-abstract class AbstractValidator
-{
-    protected string $errorMessage = '';
+use AlanVdb\Validator\Definition\ValidatorInterface;
 
-    public function __construct(string $errorMessage = '')
+abstract class AbstractValidator implements ValidatorInterface
+{
+    protected string $errorMessage;
+
+    public function __construct(string $errorMessage)
     {
         $this->errorMessage = $errorMessage;
     }
